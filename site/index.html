@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Grewal Tile Gallery | Tiles showroom, Gill Road, Ludhiana</title>
+    <meta
+      name="description"
+      content="Floor, wall, bathroom, kitchen and outdoor tiles in Ludhiana. Over 800 designs on display at 21-22 Tile Market, Gill Road."
+    />
+    <style>
+      :root {
+        --ink: #22262a;
+        --muted: #5d636a;
+        --bg: #f7f4ef;
+        --surface: #ffffff;
+        --stone: #ebe5dc;
+        --rule: #d9d1c5;
+        --accent: #b0532f; /* terracotta */
+        --accent-ink: #ffffff;
+        --accent-dark: #8a3f22;
+        --grout: #cfc6b8;
+
+        /* chat widget colours */
+        --sd-accent: var(--accent);
+        --sd-accent-ink: var(--accent-ink);
+        --sd-bg: var(--surface);
+        --sd-surface: #f3eee7;
+        --sd-ink: var(--ink);
+        --sd-muted: var(--muted);
+        --sd-rule: var(--rule);
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        font-family:
+          system-ui,
+          -apple-system,
+          "Segoe UI",
+          Roboto,
+          "Helvetica Neue",
+          Arial,
+          sans-serif;
+        color: var(--ink);
+        background: var(--bg);
+        line-height: 1.55;
+      }
+      a {
+        color: var(--accent-dark);
+      }
+      .wrap {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* header */
+      .top {
+        background: var(--ink);
+        color: #f3eee7;
+      }
+      .top .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        color: inherit;
+        text-decoration: none;
+      }
+      .mark {
+        width: 28px;
+        height: 28px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2px;
+      }
+      .mark span {
+        background: var(--accent);
+      }
+      .mark span:nth-child(2),
+      .mark span:nth-child(3) {
+        background: #e9dfd1;
+      }
+      .top nav {
+        display: flex;
+        gap: 18px;
+        font-size: 0.95rem;
+      }
+      .top nav a {
+        color: #e9dfd1;
+        text-decoration: none;
+      }
+      .top nav a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      /* hero with a CSS tile pattern */
+      .hero {
+        background-color: var(--stone);
+        background-image:
+          linear-gradient(var(--grout) 2px, transparent 2px),
+          linear-gradient(90deg, var(--grout) 2px, transparent 2px);
+        background-size: 64px 64px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .hero .wrap {
+        padding-top: 56px;
+        padding-bottom: 56px;
+      }
+      .hero-card {
+        background: var(--surface);
+        max-width: 620px;
+        padding: 32px;
+        border-left: 6px solid var(--accent);
+        box-shadow: 0 10px 30px rgba(34, 38, 42, 0.08);
+      }
+      .eyebrow {
+        margin: 0 0 6px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(1.8rem, 5vw, 2.6rem);
+        line-height: 1.15;
+      }
+      .hero p {
+        margin: 0 0 20px;
+        color: var(--muted);
+        font-size: 1.05rem;
+      }
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+      .btn {
+        display: inline-block;
+        padding: 11px 18px;
+        border-radius: 4px;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid var(--accent);
+        cursor: pointer;
+        font: inherit;
+        font-weight: 600;
+      }
+      .btn.primary {
+        background: var(--accent);
+        color: var(--accent-ink);
+      }
+      .btn.primary:hover {
+        background: var(--accent-dark);
+        border-color: var(--accent-dark);
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--accent-dark);
+      }
+
+      section {
+        padding: 56px 0;
+      }
+      h2 {
+        font-size: 1.6rem;
+        margin: 0 0 6px;
+      }
+      .lead {
+        margin: 0 0 28px;
+        color: var(--muted);
+      }
+
+      /* tiles grid */
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+      }
+      .tile {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        padding: 0 0 18px;
+      }
+      .swatch {
+        height: 86px;
+        border-bottom: 1px solid var(--rule);
+      }
+      .tile h3 {
+        margin: 14px 18px 4px;
+        font-size: 1.05rem;
+      }
+      .tile p {
+        margin: 0 18px;
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+      .tile .price {
+        margin-top: 10px;
+        color: var(--ink);
+        font-weight: 700;
+      }
+      .sw-vit {
+        background: linear-gradient(135deg, #f1ede6, #d8d1c6);
+        background-size: 50% 50%;
+        box-shadow: inset 0 0 0 1px #fff;
+      }
+      .sw-slab {
+        background: linear-gradient(
+          90deg,
+          #e9e6e1 49.5%,
+          var(--grout) 49.5% 50.5%,
+          #e3e0da 50.5%
+        );
+      }
+      .sw-wood {
+        background: repeating-linear-gradient(
+          0deg,
+          #a87850 0 18px,
+          #8f6440 18px 20px,
+          #b5845a 20px 40px,
+          #8f6440 40px 42px
+        );
+      }
+      .sw-wall {
+        background-color: #e6eef0;
+        background-image:
+          linear-gradient(var(--grout) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grout) 1px, transparent 1px);
+        background-size: 30px 45px;
+      }
+      .sw-skid {
+        background-color: #c9c3b8;
+        background-image:
+          radial-gradient(#b4ada0 1px, transparent 1px),
+          linear-gradient(var(--grout) 1px, transparent 1px),
+          linear-gradient(90deg, var(--grout) 1px, transparent 1px);
+        background-size:
+          6px 6px,
+          30px 30px,
+          30px 30px;
+      }
+      .sw-out {
+        background-color: #8e8a84;
+        background-image:
+          linear-gradient(#6f6b66 2px, transparent 2px),
+          linear-gradient(90deg, #6f6b66 2px, transparent 2px);
+        background-size: 30px 30px;
+      }
+      .note {
+        margin-top: 18px;
+        font-size: 0.92rem;
+        color: var(--muted);
+      }
+      .extras {
+        margin-top: 12px;
+        font-size: 0.95rem;
+      }
+
+      /* calculator */
+      .calc-section {
+        background: var(--surface);
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+      }
+      .calc {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 28px;
+        align-items: start;
+      }
+      .calc form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .calc label {
+        display: block;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .calc .full {
+        grid-column: 1 / -1;
+      }
+      .calc input,
+      .calc select {
+        width: 100%;
+        padding: 10px;
+        font: inherit;
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        background: #fff;
+        color: var(--ink);
+      }
+      .calc input:focus,
+      .calc select:focus {
+        outline: 2px solid var(--accent);
+        outline-offset: 1px;
+      }
+      .result {
+        background: var(--bg);
+        border-left: 6px solid var(--accent);
+        padding: 20px;
+        min-height: 100%;
+      }
+      .result .big {
+        font-size: 2rem;
+        font-weight: 800;
+        margin: 0;
+      }
+      .result p {
+        margin: 6px 0;
+      }
+      .result small {
+        color: var(--muted);
+      }
+
+      /* info */
+      .info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 16px;
+      }
+      .panel {
+        background: var(--surface);
+        border: 1px solid var(--rule);
+        padding: 20px 22px;
+      }
+      .panel h3 {
+        margin: 0 0 10px;
+        font-size: 1.1rem;
+      }
+      .panel ul {
+        margin: 0;
+        padding-left: 18px;
+      }
+      .panel li {
+        margin-bottom: 6px;
+      }
+      .panel p {
+        margin: 0 0 8px;
+      }
+
+      footer {
+        background: var(--ink);
+        color: #cfc8bd;
+        font-size: 0.9rem;
+        padding: 28px 0 96px;
+      }
+      footer p {
+        margin: 4px 0;
+      }
+      footer a {
+        color: #f3eee7;
+      }
+
+      @media (max-width: 720px) {
+        .top nav {
+          display: none;
+        }
+        .hero .wrap {
+          padding-top: 32px;
+          padding-bottom: 32px;
+        }
+        .hero-card {
+          padding: 22px;
+        }
+        section {
+          padding: 40px 0;
+        }
+        .calc {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 420px) {
+        .wrap {
+          padding: 0 16px;
+        }
+        .calc form {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap">
+        <a class="brand" href="#"
+          ><span class="mark" aria-hidden="true"
+            ><span></span><span></span><span></span><span></span></span
+          >Grewal Tile Gallery</a
+        >
+        <nav aria-label="Main">
+          <a href="#tiles">Tiles and prices</a>
+          <a href="#calculator">Box calculator</a>
+          <a href="#visit">Visit us</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div class="wrap">
+          <div class="hero-card">
+            <p class="eyebrow">Tiles showroom, Ludhiana, since 2004</p>
+            <h1>Floor, wall and bathroom tiles for every room</h1>
+            <p>
+              Over 800 designs on display at Gill Road. Take sample pieces of up
+              to 3 designs home free, then get a written quotation on WhatsApp.
+            </p>
+            <div class="actions">
+              <a class="btn primary" href="https://wa.me/919876543210"
+                >WhatsApp us</a
+              >
+              <button
+                class="btn ghost"
+                type="button"
+                onclick="
+                  window.SalesDesk &&
+                    SalesDesk.open('How many boxes of tiles do I need?')
+                "
+              >
+                Ask our assistant
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="tiles">
+        <div class="wrap">
+          <h2>Tiles and prices</h2>
+          <p class="lead">
+            Showroom prices per sq ft. Tiles are sold by the full box only.
+          </p>
+          <div class="grid">
+            <article class="tile">
+              <div class="swatch sw-vit"></div>
+              <h3>Vitrified floor tiles</h3>
+              <p>
+                600 x 600 mm (2 x 2 ft), glossy or matt. 4 tiles per box, one
+                box covers 15.5 sq ft.
+              </p>
+              <p class="price">Rs 55 to Rs 85 per sq ft</p>
+            </article>
+            <article class="tile">
+              <div class="swatch sw-slab"></div>
+              <h3>Large vitrified slabs</h3>
+              <p>
+                600 x 1200 mm (2 x 4 ft), glossy or matt. 2 tiles per box, one
+                box covers 15.5 sq ft.
+              </p>
+              <p class="price">Rs 95 to Rs 140 per sq ft</p>
+            </article>
+            <article class="tile">
+              <div class="swatch sw-wood"></div>
+              <h3>Wooden-finish plank tiles</h3>
+              <p>
+                200 x 1200 mm, matt. 4 tiles per box, one box covers 10.3 sq ft.
+              </p>
+              <p class="price">Rs 75 per sq ft</p>
+            </article>
+            <article class="tile">
+              <div class="swatch sw-wall"></div>
+              <h3>Ceramic wall tiles</h3>
+              <p>
+                For bathrooms and kitchens. 300 x 450 mm, glossy or matt. 6
+                tiles per box, one box covers 8.7 sq ft.
+              </p>
+              <p class="price">Rs 30 to Rs 45 per sq ft</p>
+            </article>
+            <article class="tile">
+              <div class="swatch sw-skid"></div>
+              <h3>Anti-skid bathroom floor tiles</h3>
+              <p>
+                300 x 300 mm, matt, anti-skid. 10 tiles per box, one box covers
+                9.7 sq ft.
+              </p>
+              <p class="price">Rs 35 per sq ft</p>
+            </article>
+            <article class="tile">
+              <div class="swatch sw-out"></div>
+              <h3>Parking and outdoor tiles</h3>
+              <p>
+                300 x 300 mm, 15 mm thick, rough, heavy duty. 8 tiles per box,
+                one box covers 7.75 sq ft.
+              </p>
+              <p class="price">Rs 48 per sq ft</p>
+            </article>
+          </div>
+          <p class="extras">
+            <strong>Also:</strong> tile adhesive, 20 kg bag, Rs 450 (covers
+            about 40 sq ft). Grout, 1 kg pack, Rs 120.
+          </p>
+          <p class="note">
+            Prices depend on the design and can change with each new stock
+            batch. Our team confirms the final price and stock in a written
+            quotation on WhatsApp. Builders and contractors: project rates on
+            orders above 2,000 sq ft. Tile shops: dealer rates on orders above
+            Rs 1,00,000. Ask the team for these rates.
+          </p>
+        </div>
+      </section>
+
+      <section id="calculator" class="calc-section">
+        <div class="wrap">
+          <h2>How many boxes do I need?</h2>
+          <p class="lead">
+            Our showroom's rule: room area plus 10% for cutting and breakage
+            (15% for diagonal laying or 600 x 1200 mm slabs), rounded up to
+            whole boxes.
+          </p>
+          <div class="calc">
+            <form id="calc" onsubmit="return false;">
+              <div>
+                <label for="len">Room length (ft)</label>
+                <input
+                  id="len"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.5"
+                  value="12"
+                />
+              </div>
+              <div>
+                <label for="wid">Room width (ft)</label>
+                <input
+                  id="wid"
+                  type="number"
+                  inputmode="decimal"
+                  min="0"
+                  step="0.5"
+                  value="14"
+                />
+              </div>
+              <div class="full">
+                <label for="tileType">Tile</label>
+                <select id="tileType">
+                  <option value="15.5">
+                    Vitrified floor tiles, 600 x 600 mm (15.5 sq ft per box)
+                  </option>
+                  <option value="15.5" data-slab="1">
+                    Large vitrified slabs, 600 x 1200 mm (15.5 sq ft per box)
+                  </option>
+                  <option value="10.3">
+                    Wooden-finish planks, 200 x 1200 mm (10.3 sq ft per box)
+                  </option>
+                  <option value="8.7">
+                    Ceramic wall tiles, 300 x 450 mm (8.7 sq ft per box)
+                  </option>
+                  <option value="9.7">
+                    Anti-skid bathroom tiles, 300 x 300 mm (9.7 sq ft per box)
+                  </option>
+                  <option value="7.75">
+                    Parking and outdoor tiles, 300 x 300 mm (7.75 sq ft per box)
+                  </option>
+                </select>
+              </div>
+              <div class="full">
+                <label for="diag"
+                  ><input
+                    id="diag"
+                    type="checkbox"
+                    style="width: auto; margin-right: 6px"
+                  />Laying diagonally</label
+                >
+              </div>
+            </form>
+            <div class="result" aria-live="polite">
+              <p class="big" id="boxes">12 boxes</p>
+              <p id="working"></p>
+              <p id="adhesive"></p>
+              <small
+                >An estimate only. For walls, multiply wall height by the length
+                of the walls you are tiling. Buy all the boxes for one room
+                together, as shade can vary slightly between batches.</small
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="visit">
+        <div class="wrap">
+          <h2>Visit, delivery and returns</h2>
+          <p class="lead">
+            See the designs in person at our showroom and godown on Gill Road.
+          </p>
+          <div class="info">
+            <div class="panel">
+              <h3>Showroom hours</h3>
+              <ul>
+                <li>Monday to Saturday: 10:00 am to 8:00 pm</li>
+                <li>
+                  Sunday: 11:00 am to 5:00 pm (showroom only, no deliveries or
+                  godown pickups)
+                </li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>Location</h3>
+              <p>21-22 Tile Market, Gill Road, Ludhiana, Punjab.</p>
+              <p>Showroom and godown at the same address.</p>
+            </div>
+            <div class="panel">
+              <h3>Pickup and delivery</h3>
+              <ul>
+                <li>
+                  Same-day godown pickup for in-stock tiles ordered before 4:00
+                  pm (Monday to Saturday).
+                </li>
+                <li>
+                  Within 25 km of Ludhiana: free delivery above Rs 25,000,
+                  otherwise Rs 600 per trip.
+                </li>
+                <li>
+                  Other towns in Punjab: charge quoted per trip. No delivery
+                  outside Punjab.
+                </li>
+                <li>
+                  Usually 1 to 2 days after the order is confirmed. Designs not
+                  in stock: 7 to 10 days from the factory.
+                </li>
+              </ul>
+            </div>
+            <div class="panel">
+              <h3>Returns and payment</h3>
+              <ul>
+                <li>
+                  Unopened, undamaged full boxes can be returned within 15 days
+                  with the bill.
+                </li>
+                <li>
+                  Opened boxes, cut tiles and clearance designs cannot be
+                  returned.
+                </li>
+                <li>
+                  Cash, UPI, card or bank transfer. Orders above Rs 50,000 need
+                  a 30% advance to book.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="calc-section">
+        <div class="wrap">
+          <h2>Contact</h2>
+          <p class="lead">
+            Our team replies on WhatsApp within 1 hour during showroom hours.
+            Messages after hours are answered the next morning.
+          </p>
+          <div class="actions">
+            <a class="btn primary" href="https://wa.me/919876543210"
+              >WhatsApp +91 98765 43210</a
+            >
+            <a class="btn ghost" href="tel:+919876543210">Call us</a>
+            <a class="btn ghost" href="mailto:sales@grewaltiles.example"
+              >sales@grewaltiles.example</a
+            >
+          </div>
+          <p class="note">
+            We don't lay tiles ourselves, but our team can share phone numbers
+            of independent tile fitters.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p>
+          <strong>Grewal Tile Gallery</strong>, 21-22 Tile Market, Gill Road,
+          Ludhiana, Punjab.
+        </p>
+        <p>
+          This is a demo website for a fictional business, made for a classroom
+          exercise. All contact details are placeholders.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var len = document.getElementById("len");
+        var wid = document.getElementById("wid");
+        var type = document.getElementById("tileType");
+        var diag = document.getElementById("diag");
+        function update() {
+          var area =
+            (parseFloat(len.value) || 0) * (parseFloat(wid.value) || 0);
+          var opt = type.options[type.selectedIndex];
+          var perBox = parseFloat(opt.value);
+          var extra = diag.checked || opt.getAttribute("data-slab") ? 15 : 10;
+          var total = area * (1 + extra / 100);
+          var boxes = Math.ceil(Math.round((total / perBox) * 1000) / 1000);
+          var bags = Math.ceil(Math.round((total / 40) * 1000) / 1000);
+          document.getElementById("boxes").textContent =
+            boxes + (boxes === 1 ? " box" : " boxes");
+          document.getElementById("working").textContent = area
+            ? area.toFixed(1).replace(/\.0$/, "") +
+              " sq ft + " +
+              extra +
+              "% = " +
+              total.toFixed(1) +
+              " sq ft, divided by " +
+              perBox +
+              " sq ft per box."
+            : "Enter the room size in feet.";
+          document.getElementById("adhesive").textContent = area
+            ? "Tile adhesive: about " +
+              bags +
+              (bags === 1 ? " bag" : " bags") +
+              " of 20 kg (one bag covers about 40 sq ft)."
+            : "";
+        }
+        [len, wid, type, diag].forEach(function (el) {
+          el.addEventListener("input", update);
+          el.addEventListener("change", update);
+        });
+        update();
+      })();
+    </script>
+
+    <script>
+      window.SalesDeskConfig = {
+        endpoint: "https://grewal-tile-gallery.albusvent.workers.dev/chat",
+        title: "Grewal Tile Gallery",
+        subtitle: "Automated assistant. Quotations go to our team.",
+        greeting:
+          "Hello. I can help with tile prices and sizes, work out how many boxes you need for a room, or send a quotation request to our team. What are you tiling?",
+        quickReplies: [
+          "Tile prices",
+          "How many boxes do I need?",
+          "Delivery and returns",
+          "Get a quotation",
+        ],
+        launcherLabel: "Ask about tiles",
+        fallbackContact: "+91 98765 43210 or sales@grewaltiles.example",
+        enquiryNextStep:
+          "Our team will reply on WhatsApp within 1 hour during showroom hours, or the next morning if it is after hours.",
+        showStructuredData: true,
+      };
+    </script>
+    <script src="chat-widget.js"></script>
+  </body>
+</html>
